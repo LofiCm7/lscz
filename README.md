@@ -1,1 +1,1 @@
-# LSCZ.github.io
+# lscz.github.io
