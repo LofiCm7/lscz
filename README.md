@@ -1,1 +1,1 @@
-# [lscz personal website](https://loficm7.github.io/lscz/)
+# [LSCZ personal website](https://loficm7.github.io/lscz/)
