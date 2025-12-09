@@ -3,26 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Vitae | USTC Physics</title>
-    <!-- Tailwind CSS -->
+    <!-- [修改这里] 浏览器标签页显示的标题 -->
+    <title>Curriculum Vitae | Li Shangchengze</title>
+    <!-- Tailwind CSS (样式库，无需修改) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- LaTeX Fonts (KaTeX) -->
+    
+    <!-- === KaTeX 数学公式配置 (新增 JS 支持) === -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.css">
-    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ]
+            });
+        });
+    </script>
+
+    <!-- Font Awesome (图标库，无需修改) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- 样式配置 (颜色和字体，通常无需修改，除非你想换配色) -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        bg: '#111827',      // Gray 900
-                        paper: '#1f2937',   // Gray 800
-                        text: '#d1d5db',    // Gray 300
-                        heading: '#f9fafb', // Gray 50
-                        accent: '#38bdf8',  // Sky 400
-                        border: '#374151',  // Gray 700
+                        bg: '#111827',      // 背景色
+                        paper: '#1f2937',   // 卡片/模块背景色
+                        text: '#d1d5db',    // 普通文字颜色
+                        heading: '#f9fafb', // 标题文字颜色
+                        accent: '#38bdf8',  // 强调色 (浅蓝色)
+                        border: '#374151',  // 边框颜色
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -34,12 +50,11 @@
         }
     </script>
     <style>
-        /* Print optimization */
+        /* 打印样式优化 (无需修改) */
         @media print {
             body { background: white; color: black; }
             .no-print { display: none; }
             a { text-decoration: none; color: black; }
-            /* Force dark text on print */
             .text-gray-300, .text-gray-400, .text-gray-500 { color: #333 !important; }
             .text-white, .text-heading { color: #000 !important; }
             .border-accent { border-color: #000 !important; }
@@ -48,25 +63,31 @@
 </head>
 <body class="bg-bg text-text font-sans antialiased py-10 md:py-20">
 
-    <!-- CV Container -->
+    <!-- CV 主要容器 -->
     <main class="max-w-3xl mx-auto px-6 md:px-8">
         
-        <!-- Header -->
+        <!-- === 头部信息 Header === -->
         <header class="mb-12 border-b border-border pb-8">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                    <h1 class="text-3xl md:text-4xl font-bold text-heading mb-2">San Zhang (Name)</h1>
-                    <p class="text-lg text-accent font-medium mb-4">Undergraduate Student @ USTC</p>
+                    <!-- [修改这里] 你的名字 (英文) -->
+                    <h1 class="text-3xl md:text-4xl font-bold text-heading mb-2">Li Shangchengze</h1>
+                    
+                    <!-- [修改这里] 你的当前身份/头衔 -->
+                    <p class="text-lg text-accent font-medium mb-4">Junior Undergraduate Student @ USTC</p>
                     
                     <div class="flex flex-col sm:flex-row gap-3 text-sm text-gray-400 font-mono">
-                        <a href="mailto:your_email@mail.ustc.edu.cn" class="hover:text-accent transition">
-                            <i class="fas fa-envelope mr-2"></i>email@mail.ustc.edu.cn
+                        <!-- [修改这里] 邮箱链接：href里填真实的mailto地址，标签间填显示的文本 -->
+                        <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="hover:text-accent transition">
+                            <i class="fas fa-envelope mr-2"></i>lscz1078766751@mail.ustc.edu.cn
                         </a>
                         <span class="hidden sm:inline">|</span>
-                        <a href="#" class="hover:text-accent transition">
-                            <i class="fab fa-github mr-2"></i>github.com/username
+                        <!-- [修改这里] GitHub链接：href里填网址，标签间填显示的文本 -->
+                        <a href="https://github.com/LofiCm7" target="_blank" class="hover:text-accent transition">
+                            <i class="fab fa-github mr-2"></i>github.com/LofiCm7
                         </a>
                         <span class="hidden sm:inline">|</span>
+                        <!-- [修改这里] 地点 -->
                         <span>
                             <i class="fas fa-map-marker-alt mr-2"></i>Hefei, China
                         </span>
@@ -75,7 +96,7 @@
             </div>
         </header>
 
-        <!-- Education -->
+        <!-- === 教育背景 Education === -->
         <section class="mb-10">
             <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
                 Education
@@ -83,121 +104,172 @@
             <div class="space-y-6">
                 <div class="flex flex-col md:flex-row justify-between items-start">
                     <div>
+                        <!-- [修改这里] 学校名称 -->
                         <h3 class="text-lg font-bold text-white">University of Science and Technology of China (USTC)</h3>
-                        <div class="text-accent mb-1">B.Sc. in Physics, School of the Gifted Young</div>
-                        <p class="text-sm text-gray-400 mt-2">
-                            <span class="font-semibold text-gray-300">Core Courses:</span> 
-                            Quantum Field Theory, General Relativity, Computational Physics, Intro to Particle Physics
+                        <!-- [修改这里] 学位/专业/学院信息 -->
+                        <div class="text-accent mb-1">Major in Physics, School of the Gifted Young</div>
+                        <!-- [修改这里] 专业方向 -->
+                        <div class="text-sm text-gray-300 mb-1">Specialization: Particle Physics and Nuclear Physics</div>
+                        <p class="text-sm text-gray-400 mt-2 leading-relaxed">
+                            <!-- [修改这里] 课程列表 -->
+                            <span class="font-semibold text-gray-300">Selected Courses:</span> 
+                            Theoretical Mechanics, Electrodynamics, Optics, Atomic Physics, Computational Physics, 
+                            Quantum Mechanics (In Progress), Advanced Quantum Mechanics (Graduate, In Progress), 
+                            Particle Physics (Graduate, Auditing)
+                        </p>
+                        <!-- [修改这里] 计划修读的课程 -->
+                        <p class="text-sm text-gray-400 mt-2 leading-relaxed">
+                            <span class="font-semibold text-gray-300">Planned Courses:</span>
+                            Quantum Field Theory (Graduate), Particle Detection Techniques (Graduate), 
+                            Experimental Methods in Particle Physics (Graduate), Machine Learning, Artificial Intelligence
                         </p>
                     </div>
                     <div class="mt-1 md:mt-0 text-right">
+                        <!-- [修改这里] 入学和毕业时间 -->
                         <div class="text-sm font-mono text-gray-400">Sep 2023 - Jun 2027 (Expected)</div>
-                        <div class="text-sm font-semibold text-white mt-1">GPA: 3.92 / 4.3 (Top 5%)</div>
+                        <!-- [修改这里] GPA 信息，每学期更新 -->
+                        <div class="text-sm font-semibold text-white mt-1 whitespace-nowrap">GPA: 3.85 / 4.3 (89.5%)</div>
+                        <div class="text-sm font-semibold text-white whitespace-nowrap">Rank: 5/28</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Honors & Awards (New Section) -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
-                Honors & Awards
-            </h2>
-            <div class="space-y-3">
-                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
-                    <span class="text-gray-300">National Scholarship (Top 2% of Students)</span>
-                    <span class="text-sm font-mono text-gray-500">2024</span>
-                </div>
-                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
-                    <span class="text-gray-300">First Prize, Chinese Undergraduate Physics Tournament (CUPT)</span>
-                    <span class="text-sm font-mono text-gray-500">2024</span>
-                </div>
-                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
-                    <span class="text-gray-300">Outstanding Freshman Scholarship, USTC</span>
-                    <span class="text-sm font-mono text-gray-500">2023</span>
-                </div>
-                <div class="flex justify-between items-baseline">
-                    <span class="text-gray-300">Gold Medal, Chinese Physics Olympiad (CPhO)</span>
-                    <span class="text-sm font-mono text-gray-500">2022</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Interests -->
+        <!-- === 研究兴趣 Research Interests === -->
         <section class="mb-10">
             <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
                 Research Interests
             </h2>
-            <ul class="list-disc list-inside space-y-2 text-gray-300">
-                <li><strong class="text-white">Physics Beyond the Standard Model (BSM):</strong> Dark Matter Phenomenology, Neutrino Physics.</li>
-                <li><strong class="text-white">Experimental Particle Physics:</strong> Detector Simulation (Geant4), Collider Data Analysis.</li>
-                <li><strong class="text-white">Computational Physics:</strong> Monte Carlo methods in Many-body systems.</li>
+            <ul class="list-disc list-inside space-y-3 text-gray-300">
+                <!-- 1. BSM Phenomenology -->
+                <li>
+                    <!-- [修改] 样式调整为行内显示 (去掉 block)，标题后添加冒号 -->
+                    <strong class="text-white">Phenomenology Beyond the Standard Model (BSM):</strong>
+                    <span class="text-gray-400">
+                        Focusing on <span class="text-gray-300">Extended Higgs Sectors</span> (e.g., 2HDM), <span class="text-gray-300">Supersymmetry (MSSM)</span>, 
+                        Sources of <span class="text-gray-300">CP Violation</span>, Dark Matter Candidates, and phenomenology of new BSM particles.
+                    </span>
+                </li>
+
+                <!-- 2. Experimental & Computational (Merged) -->
+                <li>
+                    <strong class="text-white">Experimental Particle Physics & Computational Techniques:</strong>
+                    <span class="text-gray-400">
+                        <span class="text-gray-300">Collider Data Analysis:</span> Precision measurements of Higgs boson couplings; 
+                        <span class="text-gray-300">Advanced Computing:</span> Monte Carlo simulations (MC), and applications of <span class="text-gray-300">Machine Learning / Deep Learning</span> in HEP.
+                    </span>
+                </li>
             </ul>
         </section>
 
-        <!-- Research Experience -->
+        <!-- === 科研经历 Research Experience === -->
         <section class="mb-10">
             <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-6 border-l-4 border-accent pl-3">
                 Research Experience
             </h2>
 
             <div class="space-y-8">
-                <!-- Experience 1 -->
+                <!-- --- 经历 1: 吴雨生教授组 --- -->
                 <div class="relative pl-4 border-l border-border hover:border-accent transition-colors duration-300">
                     <div class="flex flex-col md:flex-row justify-between mb-2">
-                        <h3 class="font-bold text-white text-lg">Analysis of Charmed Baryon Decays at BESIII</h3>
+                        <!-- [修改] 标题：改为 Undergraduate Research Practice (本科生科研实践活动) -->
+                        <h3 class="font-bold text-white text-lg">Undergraduate Research Practice</h3>
+                        <!-- [修改] 进组时间 -->
                         <span class="text-sm font-mono text-gray-500">Sep 2024 - Present</span>
                     </div>
-                    <p class="text-sm text-accent mb-3">Undergraduate Research Program | Advisor: Prof. XXX</p>
-                    <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-gray-400 leading-relaxed">
-                        <li>Analyzed $\Lambda_c^+$ data collected by the BEPCII collider using <span class="text-gray-300">ROOT/C++</span> framework.</li>
-                        <li>Optimized Particle Identification (PID) and vertex fitting algorithms, reducing combinatorial background by 40%.</li>
-                        <li>Currently drafting an internal report on the branching fraction measurement of a rare decay channel.</li>
-                    </ul>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="relative pl-4 border-l border-border hover:border-accent transition-colors duration-300">
-                    <div class="flex flex-col md:flex-row justify-between mb-2">
-                        <h3 class="font-bold text-white text-lg">Geant4 Simulation of Electromagnetic Calorimeter</h3>
-                        <span class="text-sm font-mono text-gray-500">Mar 2024 - Jul 2024</span>
+                    <!-- [修改] 导师信息 -->
+                    <p class="text-sm text-accent mb-3">Group of Prof. Yusheng Wu (Member of ATLAS Collaboration)</p>
+                    
+                    <!-- [修改] 具体课题标题 (删去 Project:，添加时间) -->
+                    <div class="mb-2">
+                        <strong class="text-gray-200 block md:inline">Study of CP Violation in Higgs Physics within the 2HDM</strong>
+                        <span class="text-xs text-gray-400 font-mono md:ml-2">(Dec 2024 - Present)</span>
+                        <!-- [修改] 样式调整：字体大小和字体族与上方 Group 信息保持一致 (text-sm text-accent) -->
+                        <div class="text-sm text-accent mt-1">
+                            Undergraduate Research Program | Advisor: Prof. Yusheng Wu
+                        </div>
                     </div>
-                    <p class="text-sm text-accent mb-3">Course Project: Computational Physics</p>
-                    <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-gray-400 leading-relaxed">
-                        <li>Constructed the geometry of a crystal calorimeter to simulate electromagnetic showers of 1-10 GeV electrons.</li>
-                        <li>Investigated lateral and longitudinal energy deposition profiles; verified the energy resolution scaling $\frac{\sigma}{E} \propto \frac{1}{\sqrt{E}}$.</li>
-                        <li>Developed Python scripts for automated batch processing and visualization of simulation data.</li>
+
+                    <!-- [修改] 课题内容整理 -->
+                    <ul class="list-disc list-outside ml-4 space-y-2 text-sm text-gray-400 leading-relaxed">
+                        <li>
+                            Investigated the Type-II Two-Higgs-Doublet Model (2HDM) with soft $Z_2$ symmetry breaking (C2HDM) to explore potential signals of <strong>CP violation</strong>.
+                        </li>
+                        <li>
+                            Performed comprehensive parameter space scanning using <strong>HiggsBounds</strong> and <strong>HiggsSignals</strong>, applying constraints from direct searches for new physics and the latest measurements of the 125 GeV Higgs boson at the LHC.
+                        </li>
+                        <li>
+                            Analyzed the model's behavior near the <strong>Standard Model alignment limit</strong> and evaluated the sensitivity of current LHC data to C2HDM parameters via $\chi^2$ statistical analysis.
+                        </li>
+                        <!-- [新增] 计划进一步研究 (Future Plan) -->
+                        <li>
+                            <strong class="text-gray-300">Future Plan:</strong> Implement MC simulations to derive kinematic distributions for calculating <strong>STXS bin modification factors</strong>; Refine benchmark parameter regions with strict theoretical and experimental constraints to identify distinct <strong>CP-violation signals</strong>.
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Skills -->
+        <!-- === 技能栈 Skills === -->
         <section class="mb-12">
             <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
                 Skills
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <!-- 技能块 1 -->
                 <div class="bg-paper p-4 rounded border border-border">
+                    <!-- [修改这里] 技能类别 -->
                     <h3 class="font-bold text-white mb-2">Programming</h3>
+                    <!-- [修改这里] 技能列表 -->
                     <p class="text-gray-400">
-                        <span class="text-accent">C++</span> (Proficient, STL/ROOT), 
-                        <span class="text-accent">Python</span> (Proficient, NumPy/SciPy/Pandas),
+                        <span class="text-accent">C++</span> (Proficient, STL), 
+                        <span class="text-accent">Python</span> (Proficient, NumPy/Pandas/Matplotlib),
                         Mathematica
                     </p>
                 </div>
+                
+                <!-- 技能块 2 -->
                 <div class="bg-paper p-4 rounded border border-border">
                     <h3 class="font-bold text-white mb-2">Tools & Platforms</h3>
+                    <!-- [修改这里] 增加了 FeynRules -->
                     <p class="text-gray-400">
-                        ROOT Framework, Geant4, LaTeX, Linux (Shell/Bash), Git
+                        ROOT Framework (Learning), MadGraph5, LaTeX, Linux, 
+                        HiggsTools (HiggsPredictions, HiggsBounds, HiggsSignals), HDECAY, FeynRules
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
+        <!-- === 荣誉奖项 Honors & Awards (已移至最后) === -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
+                Honors & Awards
+            </h2>
+            <div class="space-y-3">
+                <!-- Rose Scholarship -->
+                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
+                    <span class="text-gray-300">Rose Scholarship, School of the Gifted Young, USTC</span>
+                    <span class="text-sm font-mono text-gray-500">2024</span>
+                </div>
+                
+                <!-- Outstanding Freshman Scholarship -->
+                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
+                    <span class="text-gray-300">Outstanding Freshman Scholarship, USTC</span>
+                    <span class="text-sm font-mono text-gray-500">2023</span>
+                </div>
+                
+                <!-- CPhO Provincial First Prize -->
+                <div class="flex justify-between items-baseline">
+                    <span class="text-gray-300">Provincial First Prize, Chinese Physics Olympiad (CPhO)</span>
+                    <span class="text-sm font-mono text-gray-500">2022</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- === 页脚 Footer === -->
         <footer class="text-center pt-8 border-t border-border text-gray-500 text-sm no-print">
             <p>
+                <!-- [修改这里] 每次更新简历后，记得修改这个日期 -->
                 Last Updated: Dec 2025 | 
                 <a href="#" class="hover:text-accent underline decoration-dotted">Download PDF Version</a>
             </p>
