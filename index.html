@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- [修改这里] 浏览器标签页显示的标题 -->
-    <title>Curriculum Vitae | Li Shangchengze</title>
-    <!-- Tailwind CSS (样式库，无需修改) -->
+    <title>Li Shangchengze | Academic Profile</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- === KaTeX 数学公式配置 (新增 JS 支持) === -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- KaTeX for Math -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
@@ -23,261 +26,321 @@
         });
     </script>
 
-    <!-- Font Awesome (图标库，无需修改) -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- 样式配置 (颜色和字体，通常无需修改，除非你想换配色) -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        bg: '#111827',      // 背景色
-                        paper: '#1f2937',   // 卡片/模块背景色
-                        text: '#d1d5db',    // 普通文字颜色
-                        heading: '#f9fafb', // 标题文字颜色
-                        accent: '#38bdf8',  // 强调色 (浅蓝色)
-                        border: '#374151',  // 边框颜色
-                    },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
                         serif: ['Merriweather', 'serif'],
-                        mono: ['Fira Code', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        sidebar: '#f8f9fa',
+                        primary: '#111827',
+                        accent: '#2563eb', 
+                        subtext: '#4b5563'
                     }
                 }
             }
         }
     </script>
     <style>
-        /* 打印样式优化 (无需修改) */
-        @media print {
-            body { background: white; color: black; }
-            .no-print { display: none; }
-            a { text-decoration: none; color: black; }
-            .text-gray-300, .text-gray-400, .text-gray-500 { color: #333 !important; }
-            .text-white, .text-heading { color: #000 !important; }
-            .border-accent { border-color: #000 !important; }
+        /* Custom Scrollbar for Chrome/Safari/Webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* Sidebar active link styling */
+        .nav-link.active {
+            color: #2563eb;
+            font-weight: 600;
+            border-right: 3px solid #2563eb;
+            background-color: #eff6ff;
         }
     </style>
 </head>
-<body class="bg-bg text-text font-sans antialiased py-10 md:py-20">
+<body class="bg-white text-primary font-sans antialiased flex flex-col md:flex-row min-h-screen">
 
-    <!-- CV 主要容器 -->
-    <main class="max-w-3xl mx-auto px-6 md:px-8">
+    <!-- === 左侧固定侧边栏 (Sidebar) === -->
+    <aside class="w-full md:w-72 md:fixed md:h-screen bg-sidebar border-r border-gray-200 flex flex-col justify-between overflow-y-auto z-50">
+        <!-- 上部分：个人信息与导航 -->
+        <div class="p-8">
+            <!-- 头像占位符 (如果有真实照片，替换src即可) -->
+            <div class="w-32 h-32 mx-auto bg-gray-300 rounded-full mb-6 overflow-hidden border-4 border-white shadow-md flex items-center justify-center text-gray-500">
+                <i class="fas fa-user text-5xl"></i>
+            </div>
+            
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-serif font-bold text-gray-900 mb-2">Li Shangchengze</h1>
+                <p class="text-sm text-accent font-medium">Undergraduate @ USTC</p>
+                <p class="text-xs text-gray-500 mt-1">Physics / SCGY</p>
+            </div>
+
+            <!-- 导航菜单 -->
+            <nav class="space-y-1">
+                <a href="#about" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                    About Me
+                </a>
+                <a href="#education" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                    Education
+                </a>
+                <a href="#research-interests" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                    Research Interests
+                </a>
+                <a href="#experience" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                    Research Experience
+                </a>
+                <a href="#skills" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                    Skills
+                </a>
+                <a href="#honors" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                    Honors & Awards
+                </a>
+            </nav>
+        </div>
+
+        <!-- 下部分：社交链接与版权 -->
+        <div class="p-8 border-t border-gray-200 bg-gray-50">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="text-gray-400 hover:text-accent transition-colors" title="Email">
+                    <i class="fas fa-envelope text-lg"></i>
+                </a>
+                <a href="https://github.com/LofiCm7" target="_blank" class="text-gray-400 hover:text-gray-900 transition-colors" title="GitHub">
+                    <i class="fab fa-github text-lg"></i>
+                </a>
+            </div>
+            <p class="text-center text-xs text-gray-400">
+                &copy; 2025 Li Shangchengze<br>
+                Based in Hefei, China
+            </p>
+        </div>
+    </aside>
+
+    <!-- === 右侧主要内容区域 (Main Content) === -->
+    <main class="flex-1 md:ml-72 p-6 md:p-16 lg:p-24 max-w-5xl mx-auto w-full">
         
-        <!-- === 头部信息 Header === -->
-        <header class="mb-12 border-b border-border pb-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div>
-                    <!-- [修改这里] 你的名字 (英文) -->
-                    <h1 class="text-3xl md:text-4xl font-bold text-heading mb-2">Li Shangchengze</h1>
-                    
-                    <!-- [修改这里] 你的当前身份/头衔 -->
-                    <p class="text-lg text-accent font-medium mb-4">Junior Undergraduate Student @ USTC</p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-3 text-sm text-gray-400 font-mono">
-                        <!-- [修改这里] 邮箱链接：href里填真实的mailto地址，标签间填显示的文本 -->
-                        <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="hover:text-accent transition">
-                            <i class="fas fa-envelope mr-2"></i>lscz1078766751@mail.ustc.edu.cn
-                        </a>
-                        <span class="hidden sm:inline">|</span>
-                        <!-- [修改这里] GitHub链接：href里填网址，标签间填显示的文本 -->
-                        <a href="https://github.com/LofiCm7" target="_blank" class="hover:text-accent transition">
-                            <i class="fab fa-github mr-2"></i>github.com/LofiCm7
-                        </a>
-                        <span class="hidden sm:inline">|</span>
-                        <!-- [修改这里] 地点 -->
-                        <span>
-                            <i class="fas fa-map-marker-alt mr-2"></i>Hefei, China
-                        </span>
-                    </div>
-                </div>
+        <!-- About / Intro -->
+        <section id="about" class="mb-16 scroll-mt-20">
+            <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">Hello, I'm Li Shangchengze.</h2>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mb-6 font-serif">
+                I am a junior undergraduate student at the <strong class="text-gray-900">University of Science and Technology of China (USTC)</strong>, majoring in Physics within the <strong class="text-gray-900">School of the Gifted Young</strong>.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl font-serif">
+                My academic focus lies in <strong class="text-gray-900">Particle Physics and Nuclear Physics</strong>. I hold a strong passion for the <strong class="text-gray-900">research and application of Machine Learning & Deep Learning in High Energy Physics</strong>, which I am currently prioritizing in my studies and research. 
+                I am also deeply engaged in research concerning <strong class="text-gray-900">Higgs Physics</strong> and <strong class="text-gray-900">phenomenology Beyond the Standard Model (BSM)</strong>.
+                Additionally, I am keenly interested in the emerging applications of Quantum Computing in HEP.
+            </p>
+            <div class="mt-8 flex gap-4">
+                <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-accent hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                </a>
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-file-pdf mr-2"></i> Download CV
+                </a>
             </div>
-        </header>
+        </section>
 
-        <!-- === 教育背景 Education === -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
-                Education
-            </h2>
-            <div class="space-y-6">
-                <div class="flex flex-col md:flex-row justify-between items-start">
-                    <div>
-                        <!-- [修改这里] 学校名称 -->
-                        <h3 class="text-lg font-bold text-white">University of Science and Technology of China (USTC)</h3>
-                        <!-- [修改这里] 学位/专业/学院信息 -->
-                        <div class="text-accent mb-1">Major in Physics, School of the Gifted Young</div>
-                        <!-- [修改这里] 专业方向 -->
-                        <div class="text-sm text-gray-300 mb-1">Specialization: Particle Physics and Nuclear Physics</div>
-                        <p class="text-sm text-gray-400 mt-2 leading-relaxed">
-                            <!-- [修改这里] 课程列表 -->
-                            <span class="font-semibold text-gray-300">Selected Courses:</span> 
-                            Theoretical Mechanics, Electrodynamics, Optics, Atomic Physics, Computational Physics, 
-                            Quantum Mechanics (In Progress), Advanced Quantum Mechanics (Graduate, In Progress), 
-                            Particle Physics (Graduate, Auditing)
-                        </p>
-                        <!-- [修改这里] 计划修读的课程 -->
-                        <p class="text-sm text-gray-400 mt-2 leading-relaxed">
-                            <span class="font-semibold text-gray-300">Planned Courses:</span>
-                            Quantum Field Theory (Graduate), Particle Detection Techniques (Graduate), 
-                            Experimental Methods in Particle Physics (Graduate), Machine Learning, Artificial Intelligence
-                        </p>
-                    </div>
-                    <div class="mt-1 md:mt-0 text-right">
-                        <!-- [修改这里] 入学和毕业时间 -->
-                        <div class="text-sm font-mono text-gray-400">Sep 2023 - Jun 2027 (Expected)</div>
-                        <!-- [修改这里] GPA 信息，每学期更新 -->
-                        <div class="text-sm font-semibold text-white mt-1 whitespace-nowrap">GPA: 3.85 / 4.3 (89.5%)</div>
-                        <div class="text-sm font-semibold text-white whitespace-nowrap">Rank: 5/28</div>
+        <hr class="border-gray-100 mb-16">
+
+        <!-- Education -->
+        <section id="education" class="mb-20 scroll-mt-20">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Resume</h3>
+            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Education</h2>
+            
+            <div class="relative pl-8 border-l-2 border-gray-100">
+                <!-- Node -->
+                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-accent"></div>
+                
+                <div class="mb-2">
+                    <span class="text-sm font-mono text-accent font-semibold">Sep 2023 - Jun 2027 (Expected)</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">University of Science and Technology of China (USTC)</h3>
+                <div class="text-gray-700 mt-1 mb-4">
+                    Major in Physics, School of the Gifted Young<br>
+                    <span class="text-sm text-gray-500">Specialization: Particle Physics and Nuclear Physics</span>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 mb-6">
+                     <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        <span class="font-bold text-gray-900">Selected Courses:</span> 
+                        Theoretical Mechanics, Electrodynamics, Optics, Atomic Physics, Computational Physics (Monte Carlo, Machine Learning), 
+                        Quantum Mechanics (In Progress), Advanced Quantum Mechanics (Graduate, In Progress), 
+                        Particle Physics (Graduate, Auditing)
+                    </p>
+                    <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        <span class="font-bold text-gray-900">Planned Courses:</span>
+                        Quantum Field Theory (Graduate), Particle Detection Techniques (Graduate), 
+                        Experimental Methods in Particle Physics (Graduate), Machine Learning, Artificial Intelligence
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-2 border-t border-gray-200 pt-4">
+                        <div class="font-bold text-gray-900 text-sm">GPA: 3.85 / 4.3 (89.5%)</div>
+                        <div class="font-bold text-gray-900 text-sm">Rank: 5/28</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- === 研究兴趣 Research Interests === -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
-                Research Interests
-            </h2>
-            <ul class="list-disc list-inside space-y-3 text-gray-300">
-                <!-- 1. BSM Phenomenology -->
-                <li>
-                    <!-- [修改] 样式调整为行内显示 (去掉 block)，标题后添加冒号 -->
-                    <strong class="text-white">Phenomenology Beyond the Standard Model (BSM):</strong>
-                    <span class="text-gray-400">
-                        Focusing on <span class="text-gray-300">Extended Higgs Sectors</span> (e.g., 2HDM), <span class="text-gray-300">Supersymmetry (MSSM)</span>, 
-                        Sources of <span class="text-gray-300">CP Violation</span>, Dark Matter Candidates, and phenomenology of new BSM particles.
-                    </span>
-                </li>
+        <!-- Research Interests -->
+        <section id="research-interests" class="mb-20 scroll-mt-20">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Focus</h3>
+            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Research Interests</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="group p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-lg transition-all duration-300 bg-white">
+                    <div class="w-12 h-12 bg-blue-50 text-accent rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-3">BSM Phenomenology</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Beyond the Standard Model phenomenology, focusing on <strong class="text-gray-900">Higgs-related New Physics</strong> (e.g., Extended Higgs Sectors, 2HDM), CP Violation sources, and Dark Matter candidates.
+                    </p>
+                </div>
 
-                <!-- 2. Experimental & Computational (Merged) -->
-                <li>
-                    <strong class="text-white">Experimental Particle Physics & Computational Techniques:</strong>
-                    <span class="text-gray-400">
-                        <span class="text-gray-300">Collider Data Analysis:</span> Precision measurements of Higgs boson couplings; 
-                        <span class="text-gray-300">Advanced Computing:</span> Monte Carlo simulations (MC), and applications of <span class="text-gray-300">Machine Learning / Deep Learning</span> in HEP.
-                    </span>
-                </li>
-            </ul>
+                <!-- Card 2 -->
+                <div class="group p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-lg transition-all duration-300 bg-white">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-3">Experimental & Computational High Energy Physics</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Focusing on the <strong class="text-gray-900">research and application of Machine Learning & Deep Learning</strong> in High Energy Physics (HEP-ML), alongside <strong class="text-gray-900">precision measurements of Higgs boson properties</strong>, collider data analysis, and Monte Carlo simulations.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <!-- === 科研经历 Research Experience === -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-6 border-l-4 border-accent pl-3">
-                Research Experience
-            </h2>
-
-            <div class="space-y-10">
-                <!-- --- 类别 1: Undergraduate Research Practice --- -->
-                <div class="relative pl-4 border-l border-border hover:border-accent transition-colors duration-300">
-                    <div class="flex flex-col md:flex-row justify-between mb-1">
-                        <h3 class="font-bold text-white text-lg">Undergraduate Research Practice</h3>
-                        <span class="text-sm font-mono text-gray-500">Sep 2024 - Present</span>
+        <!-- Research Experience -->
+        <section id="experience" class="mb-20 scroll-mt-20">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Portfolio</h3>
+            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Research Experience</h2>
+            
+            <div class="space-y-12">
+                
+                <!-- Category 1: Undergraduate Research Practice -->
+                <div class="relative border-l-2 border-gray-200 pl-8 pb-4">
+                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent"></div>
+                     
+                     <div class="flex flex-col md:flex-row justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-gray-900">Undergraduate Research Practice</h3>
+                        <span class="text-sm font-mono text-gray-500 mt-1 md:mt-0">Sep 2024 - Present</span>
                     </div>
-                    <!-- [修改] 领域标注: High Energy Physics (去掉 Field:) -->
-                    <div class="mb-3">
-                        <span class="text-xs font-mono text-primary border border-primary/30 px-2 py-0.5 rounded bg-primary/5">
+
+                    <div class="mb-4">
+                        <span class="text-xs font-mono text-accent border border-accent/30 px-2 py-0.5 rounded bg-blue-50">
                             High Energy Physics
                         </span>
                     </div>
 
-                    <p class="text-sm text-accent mb-4">Group of Prof. Yusheng Wu (Member of ATLAS Collaboration)</p>
+                    <p class="text-sm text-accent font-semibold mb-6">Group of Prof. Yusheng Wu (Member of ATLAS Collaboration)</p>
                     
-                    <!-- 具体项目 -->
-                    <div class="mb-2">
-                        <strong class="text-gray-200 block md:inline">Study of CP Violation in Higgs Physics within the 2HDM</strong>
-                        <span class="text-xs text-gray-400 font-mono md:ml-2">(Dec 2024 - Present)</span>
-                        <div class="text-sm text-accent mt-1">
-                            Undergraduate Research Program | Advisor: Prof. Yusheng Wu
-                        </div>
-                    </div>
-
-                    <ul class="list-disc list-outside ml-4 space-y-2 text-sm text-gray-400 leading-relaxed">
-                        <li>
-                            Investigated the Type-II Two-Higgs-Doublet Model (2HDM) with soft $Z_2$ symmetry breaking (C2HDM) to explore potential signals of <strong>CP violation</strong>.
-                        </li>
-                        <li>
-                            Performed comprehensive parameter space scanning using <strong>HiggsBounds</strong> and <strong>HiggsSignals</strong>, applying constraints from direct searches for new physics and the latest measurements of the 125 GeV Higgs boson at the LHC.
-                        </li>
-                        <li>
-                            Analyzed the model's behavior near the <strong>Standard Model alignment limit</strong> and evaluated the sensitivity of current LHC data to C2HDM parameters via $\chi^2$ statistical analysis.
-                        </li>
-                        <li>
-                            <strong class="text-gray-300">Future Plan:</strong> Implement MC simulations to derive kinematic distributions for calculating <strong>STXS bin modification factors</strong>; Refine benchmark parameter regions with strict theoretical and experimental constraints to identify distinct <strong>CP-violation signals</strong>.
-                        </li>
-                        <li>
-                            <strong class="text-gray-300">Current Progress Report:</strong>
-                            <a href="./assets/C2HDM%26SM%20Alignment.pptx" class="text-accent hover:text-white transition hover:underline ml-1">
-                                <i class="fas fa-file-powerpoint mr-1"></i> Download Slides
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- --- 类别 2: Course Research Projects --- -->
-                <div class="relative pl-4 border-l border-border hover:border-accent transition-colors duration-300">
-                    <div class="flex flex-col md:flex-row justify-between mb-4">
-                        <h3 class="font-bold text-white text-lg">Course Research Projects</h3>
-                        <span class="text-sm font-mono text-gray-500">Sep 2023 - Present</span>
-                    </div>
-
-                    <!-- [项目 1] 双折射干涉模拟 (光学大作业) -->
-                    <div class="mb-2">
-                        <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-                            <strong class="text-gray-200 text-base">Theoretical Derivation and Simulation of Birefringence Interference Patterns</strong>
-                            <span class="text-xs text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Dec 2024)</span>
-                        </div>
-                        
-                        <!-- [修改] 领域标注: 改为 Non-HEP Project -->
-                        <div class="my-1">
-                             <span class="text-xs font-mono text-gray-500 border border-gray-600 px-2 py-0.5 rounded">
-                                Non-HEP Project
-                            </span>
-                        </div>
-
-                        <!-- [修改] 格式调整: Course Project | Team info -->
-                        <p class="text-sm text-accent mt-1">
-                            <!-- [修改] 将 text-gray-600 改为 text-accent -->
-                            Course Project: Optics <span class="mx-1 text-accent">|</span> Two-person Team
-                        </p>
-                    </div>
-
-                    <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-gray-400 leading-relaxed">
-                        <li>
-                            Derived theoretical formulas for the intensity distribution and contrast of equal-inclination interference fringes induced by crystal birefringence.
-                        </li>
-                        <li>
-                            Simulated and visualized interference patterns under varying experimental parameters using <strong>Mathematica</strong>.
-                        </li>
-                        <li>
-                            <strong class="text-gray-300">Contribution:</strong> Focused on partial theoretical derivations and led the entire numerical simulation.
-                        </li>
-                    </ul>
-
-                    <!-- [项目 2] 交流电桥与 COMSOL 项目 -->
-                    <div class="mt-6 pt-4 border-t border-white/5">
+                    <!-- Specific Project -->
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                         <div class="mb-2">
-                            <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-                                <strong class="text-gray-200 text-base">Measurement of Soft Iron Permeability and Copper Conductivity via AC Bridge and COMSOL</strong>
-                                <span class="text-xs text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Mar 2024 - Jun 2024)</span>
+                            <strong class="text-gray-900 block text-lg mb-1">Study of CP Violation in Higgs Physics within the 2HDM</strong>
+                            <span class="text-sm text-gray-500 font-mono block mb-2">(Dec 2024 - Present)</span>
+                            <div class="text-sm text-accent font-medium mb-4">
+                                Undergraduate Research Program | Advisor: Prof. Yusheng Wu
                             </div>
+                        </div>
 
-                            <!-- [修改] 领域标注: 改为 Non-HEP Project -->
-                            <div class="my-1">
-                                 <span class="text-xs font-mono text-gray-500 border border-gray-600 px-2 py-0.5 rounded">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
+                            <li>
+                                Investigated the Type-II Two-Higgs-Doublet Model (2HDM) with soft $Z_2$ symmetry breaking (C2HDM) to explore potential signals of <strong>CP violation</strong>.
+                            </li>
+                            <li>
+                                Performed comprehensive parameter space scanning using <strong>HiggsBounds</strong> and <strong>HiggsSignals</strong>, applying constraints from direct searches for new physics and the latest measurements of the 125 GeV Higgs boson at the LHC.
+                            </li>
+                            <li>
+                                Analyzed the model's behavior near the <strong>Standard Model alignment limit</strong> and evaluated the sensitivity of current LHC data to C2HDM parameters via $\chi^2$ statistical analysis.
+                            </li>
+                            <li>
+                                <strong class="text-gray-800">Future Plan:</strong> Implement MC simulations to derive kinematic distributions for calculating <strong>STXS bin modification factors</strong>; Refine benchmark parameter regions with strict theoretical and experimental constraints to identify distinct <strong>CP-violation signals</strong>.
+                            </li>
+                            <li>
+                                <strong class="text-gray-800">Current Progress Report:</strong>
+                                <a href="./assets/report.pptx" class="text-accent hover:underline font-medium ml-1 inline-flex items-center">
+                                    <i class="fas fa-file-powerpoint mr-1"></i> Download Slides
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 2: Course Research Projects -->
+                <div class="relative border-l-2 border-gray-200 pl-8 pb-4">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-400"></div>
+
+                    <div class="flex flex-col md:flex-row justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900">Course Research Projects</h3>
+                        <span class="text-sm font-mono text-gray-500 mt-1 md:mt-0">Sep 2023 - Present</span>
+                    </div>
+
+                    <!-- Project 1 -->
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-6">
+                        <div class="mb-3">
+                            <div class="flex flex-col md:flex-row md:items-baseline justify-between">
+                                <strong class="text-gray-900 text-lg">Theoretical Derivation and Simulation of Birefringence Interference Patterns</strong>
+                                <span class="text-sm text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Dec 2024)</span>
+                            </div>
+                            
+                            <div class="my-2">
+                                 <span class="text-xs font-mono text-gray-500 border border-gray-300 px-2 py-0.5 rounded">
                                     Non-HEP Project
                                 </span>
                             </div>
 
-                            <!-- [修改] 格式调整: Course Project | Team info | Topic info -->
-                            <p class="text-sm text-accent mt-1">
-                                <!-- [修改] 将 text-gray-600 改为 text-accent -->
-                                Course Project: College Physics – Base Experimentation A <span class="mx-1 text-accent">|</span> Two-person Team <span class="mx-1 text-accent">|</span> Topic from IYPT
+                            <p class="text-sm text-accent mt-1 font-medium">
+                                Course Project: Optics <span class="mx-1 text-gray-300">|</span> Two-person Team
                             </p>
                         </div>
 
-                        <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-gray-400 leading-relaxed">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
+                            <li>
+                                Derived theoretical formulas for the intensity distribution and contrast of equal-inclination interference fringes induced by crystal birefringence.
+                            </li>
+                            <li>
+                                Simulated and visualized interference patterns under varying experimental parameters using <strong>Mathematica</strong>.
+                            </li>
+                            <li>
+                                <strong class="text-gray-800">Contribution:</strong> Focused on partial theoretical derivations and led the entire numerical simulation.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-6">
+                        <div class="mb-3">
+                            <div class="flex flex-col md:flex-row md:items-baseline justify-between">
+                                <strong class="text-gray-900 text-lg">Measurement of Soft Iron Permeability and Copper Conductivity via AC Bridge and COMSOL</strong>
+                                <span class="text-sm text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Mar 2024 - Jun 2024)</span>
+                            </div>
+
+                            <div class="my-2">
+                                 <span class="text-xs font-mono text-gray-500 border border-gray-300 px-2 py-0.5 rounded">
+                                    Non-HEP Project
+                                </span>
+                            </div>
+
+                            <p class="text-sm text-accent mt-1 font-medium">
+                                Course Project: College Physics – Base Experimentation A <span class="mx-1 text-gray-300">|</span> Two-person Team <span class="mx-1 text-gray-300">|</span> Topic from IYPT
+                            </p>
+                        </div>
+
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
                             <li>
                                 Constructed an AC bridge to measure the variations in coil inductance and resistance upon the insertion of soft iron and copper cores.
                             </li>
@@ -288,34 +351,31 @@
                                 Analyzed the sensitivity of the AC bridge system.
                             </li>
                             <li>
-                                <strong class="text-gray-300">Contribution:</strong> Co-designed and implemented the experiment; primarily responsible for performing finite element calculations using COMSOL.
+                                <strong class="text-gray-800">Contribution:</strong> Co-designed and implemented the experiment; primarily responsible for performing finite element calculations using COMSOL.
                             </li>
                         </ul>
                     </div>
 
-                    <!-- [项目 3] 毛细上升法测量接触角项目 (大一研讨课) -->
-                    <div class="mt-6 pt-4 border-t border-white/5">
-                        <div class="mb-2">
+                    <!-- Project 3 -->
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="mb-3">
                             <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-                                <strong class="text-gray-200 text-base">Measurement of Contact Angle of Hydrophilic Powder via Capillary Rise Method</strong>
-                                <span class="text-xs text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Dec 2023 - Jun 2024)</span>
+                                <strong class="text-gray-900 text-lg">Measurement of Contact Angle of Hydrophilic Powder via Capillary Rise Method</strong>
+                                <span class="text-sm text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Dec 2023 - Jun 2024)</span>
                             </div>
 
-                            <!-- [修改] 领域标注: 改为 Non-HEP Project -->
-                            <div class="my-1">
-                                 <span class="text-xs font-mono text-gray-500 border border-gray-600 px-2 py-0.5 rounded">
+                            <div class="my-2">
+                                 <span class="text-xs font-mono text-gray-500 border border-gray-300 px-2 py-0.5 rounded">
                                     Non-HEP Project
                                 </span>
                             </div>
 
-                            <!-- [修改] 格式调整: Course Project | Team info | Advisor -->
-                            <p class="text-sm text-accent mt-1">
-                                <!-- [修改] 将 text-gray-600 改为 text-accent -->
-                                Course Project: Freshman Seminar <span class="mx-1 text-accent">|</span> Four-person Team <span class="mx-1 text-accent">|</span> Advisor: Prof. Xiaojun Wu
+                            <p class="text-sm text-accent mt-1 font-medium">
+                                Course Project: Freshman Seminar <span class="mx-1 text-gray-300">|</span> Four-person Team <span class="mx-1 text-gray-300">|</span> Advisor: Prof. Xiaojun Wu
                             </p>
                         </div>
 
-                        <ul class="list-disc list-outside ml-4 space-y-1 text-sm text-gray-400 leading-relaxed">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
                             <li>
                                 Designed a measurement setup based on the capillary rise method to determine the contact angle of hydrophilic powders by monitoring pressure variations.
                             </li>
@@ -323,79 +383,165 @@
                                 Measured the wettability of graphite and coffee powders, determining a contact angle of $76.5^\circ$ for coffee, which explains its non-clumping dissolution behavior.
                             </li>
                             <li>
-                                <strong class="text-gray-300">Contribution:</strong> Co-leader; responsible for experimental design, theoretical modeling, calculations, and implementation.
+                                <strong class="text-gray-800">Contribution:</strong> Co-leader; responsible for experimental design, theoretical modeling, calculations, and implementation.
                             </li>
                         </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="mb-20 scroll-mt-20">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Capabilities</h3>
+            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Technical Skills</h2>
+            
+            <div class="bg-gray-900 text-gray-300 rounded-2xl p-8 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="text-white text-lg font-bold mb-4 flex items-center">
+                            <i class="fas fa-code mr-3 text-accent"></i> Programming
+                        </h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex justify-between">
+                                <span>C++ (STL)</span>
+                                <span class="text-gray-500">Intermediate</span>
+                            </li>
+                            <li class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
+                                <div class="bg-accent h-1.5 rounded-full" style="width: 75%"></div>
+                            </li>
+                            
+                            <li class="flex justify-between mt-4">
+                                <span>Python (NumPy, <strong class="text-white">PyTorch</strong>, etc.)</span>
+                                <span class="text-gray-500">Proficient</span>
+                            </li>
+                            <li class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
+                                <div class="bg-accent h-1.5 rounded-full" style="width: 95%"></div>
+                            </li>
+
+                            <li class="flex justify-between mt-4">
+                                <span>Mathematica</span>
+                                <span class="text-gray-500">Intermediate</span>
+                            </li>
+                            <li class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
+                                <div class="bg-accent h-1.5 rounded-full" style="width: 75%"></div>
+                            </li>
+                        </ul>
+
+                        <h4 class="text-white text-lg font-bold mt-8 mb-4 flex items-center">
+                            <i class="fas fa-brain mr-3 text-accent"></i> Algorithms & Techniques
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Monte Carlo Simulation</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Machine Learning</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Neural Networks</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-white text-lg font-bold mb-4 flex items-center">
+                            <i class="fas fa-tools mr-3 text-accent"></i> Tools & Frameworks
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <!-- Category 1: General HEP Tools -->
+                            <div>
+                                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">General HEP Tools</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">MadGraph5</span>
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">FeynRules</span>
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">ROOT Framework</span>
+                                </div>
+                            </div>
+
+                            <!-- Category 2: Other HEP Tools -->
+                            <div>
+                                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Other HEP Tools</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">HDECAY</span>
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">HiggsBounds</span>
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">HiggsSignals</span>
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">ScannerS</span>
+                                </div>
+                            </div>
+
+                            <!-- Category 3: Productivity -->
+                            <div>
+                                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Productivity</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Linux</span>
+                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">LaTeX</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- === 技能栈 Skills === -->
-        <section class="mb-12">
-            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
-                Skills
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                <!-- 技能块 1 -->
-                <div class="bg-paper p-4 rounded border border-border">
-                    <h3 class="font-bold text-white mb-2">Programming</h3>
-                    <!-- [修改这里] 技能列表 -->
-                    <p class="text-gray-400">
-                        <span class="text-accent">C++</span> (Proficient, STL), 
-                        <span class="text-accent">Python</span> (Proficient, NumPy/Pandas/Matplotlib),
-                        Mathematica
-                    </p>
+        <!-- Honors -->
+        <section id="honors" class="mb-10 scroll-mt-20">
+            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Recognition</h3>
+            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Honors & Awards</h2>
+            
+            <div class="grid gap-4">
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all">
+                    <div class="w-12 text-center font-bold text-accent text-lg">2024</div>
+                    <div class="w-px h-8 bg-gray-300 mx-4"></div>
+                    <div>
+                        <div class="font-bold text-gray-900">Rose Scholarship</div>
+                        <div class="text-xs text-gray-500">School of the Gifted Young, USTC</div>
+                    </div>
                 </div>
                 
-                <!-- 技能块 2 -->
-                <div class="bg-paper p-4 rounded border border-border">
-                    <h3 class="font-bold text-white mb-2">Tools & Platforms</h3>
-                    <!-- [修改这里] 增加了 FeynRules -->
-                    <p class="text-gray-400">
-                        ROOT Framework (Learning), MadGraph5, LaTeX, Linux, 
-                        HiggsTools (HiggsPredictions, HiggsBounds, HiggsSignals), HDECAY, FeynRules
-                    </p>
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all">
+                    <div class="w-12 text-center font-bold text-gray-400 text-lg">2023</div>
+                    <div class="w-px h-8 bg-gray-300 mx-4"></div>
+                    <div>
+                        <div class="font-bold text-gray-900">Outstanding Freshman Scholarship</div>
+                        <div class="text-xs text-gray-500">University of Science and Technology of China</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all">
+                    <div class="w-12 text-center font-bold text-gray-400 text-lg">2022</div>
+                    <div class="w-px h-8 bg-gray-300 mx-4"></div>
+                    <div>
+                        <div class="font-bold text-gray-900">Provincial First Prize</div>
+                        <div class="text-xs text-gray-500">Chinese Physics Olympiad (CPhO)</div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- === 荣誉奖项 Honors & Awards (已移至最后) === -->
-        <section class="mb-10">
-            <h2 class="text-xl font-bold text-heading uppercase tracking-wider mb-4 border-l-4 border-accent pl-3">
-                Honors & Awards
-            </h2>
-            <div class="space-y-3">
-                <!-- Rose Scholarship -->
-                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
-                    <span class="text-gray-300">Rose Scholarship, School of the Gifted Young, USTC</span>
-                    <span class="text-sm font-mono text-gray-500">2024</span>
-                </div>
-                
-                <!-- Outstanding Freshman Scholarship -->
-                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
-                    <span class="text-gray-300">Outstanding Freshman Scholarship, USTC</span>
-                    <span class="text-sm font-mono text-gray-500">2023</span>
-                </div>
-                
-                <!-- CPhO Provincial First Prize -->
-                <div class="flex justify-between items-baseline">
-                    <span class="text-gray-300">Provincial First Prize, Chinese Physics Olympiad (CPhO)</span>
-                    <span class="text-sm font-mono text-gray-500">2022</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- === 页脚 Footer === -->
-        <footer class="text-center pt-8 border-t border-border text-gray-500 text-sm no-print">
-            <p>
-                <!-- [修改这里] 每次更新简历后，记得修改这个日期 -->
-                Last Updated: Dec 2025 | 
-                <a href="#" class="hover:text-accent underline decoration-dotted">Download PDF Version</a>
-            </p>
-        </footer>
 
     </main>
+    
+    <!-- Script for scrolling spy (updates active link) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
