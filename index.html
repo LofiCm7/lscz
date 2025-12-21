@@ -114,7 +114,7 @@
 
         <!-- 下部分：社交链接与版权 -->
         <div class="p-8 border-t border-gray-200 bg-gray-50">
-            <div class="flex justify-center space-x-4 mb-4">
+            <div class="flex justify-center space-x-6 mb-4">
                 <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="text-gray-400 hover:text-accent transition-colors" title="Email">
                     <i class="fas fa-envelope text-lg"></i>
                 </a>
@@ -122,6 +122,17 @@
                     <i class="fab fa-github text-lg"></i>
                 </a>
             </div>
+
+            <!-- 可复制的联系方式文本 -->
+            <div class="space-y-3 mb-6 text-center">
+                <div class="text-xs text-gray-500 break-all">
+                    <span class="select-all hover:text-gray-900 cursor-text">lscz1078766751@mail.ustc.edu.cn</span>
+                </div>
+                <div class="text-xs text-gray-500 break-all">
+                    <span class="select-all hover:text-gray-900 cursor-text">github.com/LofiCm7</span>
+                </div>
+            </div>
+
             <p class="text-center text-xs text-gray-400">
                 &copy; 2025 Li Shangchengze<br>
                 Based in Hefei, China
@@ -130,27 +141,81 @@
     </aside>
 
     <!-- === 右侧主要内容区域 (Main Content) === -->
-    <main class="flex-1 md:ml-72 p-6 md:p-16 lg:p-24 max-w-5xl mx-auto w-full">
+    <main class="flex-1 md:ml-72 p-6 md:p-16 lg:p-24 max-w-6xl mx-auto w-full">
         
         <!-- About / Intro -->
-        <section id="about" class="mb-16 scroll-mt-20">
-            <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">Hello, I'm Li Shangchengze.</h2>
-            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mb-6 font-serif">
-                I am a junior undergraduate student at the <strong class="text-gray-900">University of Science and Technology of China (USTC)</strong>, majoring in Physics within the <strong class="text-gray-900">School of the Gifted Young</strong>.
-            </p>
-            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl font-serif">
-                My academic focus lies in <strong class="text-gray-900">Particle Physics and Nuclear Physics</strong>. I hold a strong passion for the <strong class="text-gray-900">research and application of Machine Learning & Deep Learning in High Energy Physics</strong>, which I am currently prioritizing in my studies and research. 
-                I am also deeply engaged in research concerning <strong class="text-gray-900">Higgs Physics</strong> and <strong class="text-gray-900">phenomenology Beyond the Standard Model (BSM)</strong>.
-                Additionally, I am keenly interested in the emerging applications of Quantum Computing in HEP.
-            </p>
-            <div class="mt-8 flex gap-4">
-                <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-accent hover:bg-blue-700 transition-colors">
-                    <i class="fas fa-paper-plane mr-2"></i> Contact Me
-                </a>
-                <a href="#" class="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                    <i class="fas fa-file-pdf mr-2"></i> Download CV
-                </a>
+        <section id="about" class="mb-20 scroll-mt-20">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                
+                <!-- 左侧：主要介绍文字 (占 2/3) -->
+                <div class="lg:col-span-2 space-y-6">
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-2">Hello, I'm Li Shangchengze.</h2>
+                    
+                    <div class="text-lg text-gray-600 leading-relaxed font-serif space-y-6 text-justify">
+                        <p>
+                            I am a junior undergraduate student at the <strong class="text-gray-900">University of Science and Technology of China (USTC)</strong>, majoring in Physics within the <strong class="text-gray-900">School of the Gifted Young</strong>.
+                        </p>
+                        <p>
+                            My academic focus lies in <strong class="text-gray-900">Particle Physics and Nuclear Physics</strong>. I hold a strong passion for the <strong class="text-gray-900">research and application of Machine Learning & Deep Learning in High Energy Physics</strong>, which I am currently prioritizing in my studies and research. 
+                        </p>
+                        <p>
+                            I am also deeply engaged in research concerning <strong class="text-gray-900">Higgs Physics</strong> and <strong class="text-gray-900">phenomenology Beyond the Standard Model (BSM)</strong>. Additionally, I am keenly interested in the emerging applications of Quantum Computing in HEP.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 右侧：极简信息栏 (占 1/3) -->
+                <div class="lg:col-span-1 lg:border-l lg:border-gray-200 lg:pl-10 mt-2 lg:mt-0">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Connect</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="group">
+                            <h4 class="text-sm font-bold text-gray-900 mb-1 flex items-center">
+                                <i class="fas fa-envelope w-5 text-gray-400 group-hover:text-accent transition-colors"></i>
+                                Email
+                            </h4>
+                            <p class="text-sm text-gray-600 font-mono select-all break-all hover:text-gray-900 transition-colors cursor-text">
+                                lscz1078766751@mail.ustc.edu.cn
+                            </p>
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="group">
+                            <h4 class="text-sm font-bold text-gray-900 mb-1 flex items-center">
+                                <i class="fab fa-github w-5 text-gray-400 group-hover:text-black transition-colors"></i>
+                                GitHub
+                            </h4>
+                            <a href="https://github.com/LofiCm7" target="_blank" class="text-sm text-gray-600 font-mono hover:text-accent hover:underline decoration-dotted break-all block">
+                                github.com/LofiCm7
+                            </a>
+                        </div>
+
+                        <!-- Location -->
+                         <div class="group">
+                            <h4 class="text-sm font-bold text-gray-900 mb-1 flex items-center">
+                                <i class="fas fa-map-marker-alt w-5 text-gray-400 group-hover:text-red-500 transition-colors"></i>
+                                Location
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                Hefei, Anhui, China
+                            </p>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="pt-6 border-t border-gray-100 flex flex-col gap-3">
+                            <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-accent hover:bg-blue-700 transition-colors w-full">
+                                Contact Me
+                            </a>
+                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors w-full">
+                                <i class="fas fa-download mr-2 text-gray-400"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </section>
 
         <hr class="border-gray-100 mb-16">
@@ -272,7 +337,7 @@
                             </li>
                             <li>
                                 <strong class="text-gray-800">Current Progress Report:</strong>
-                                <a href="./assets/report.pptx" class="text-accent hover:underline font-medium ml-1 inline-flex items-center">
+                                <a href="./assets/C2HDM%26SM%20Alignment.pptx" class="text-accent hover:underline font-medium ml-1 inline-flex items-center">
                                     <i class="fas fa-file-powerpoint mr-1"></i> Download Slides
                                 </a>
                             </li>
@@ -380,7 +445,7 @@
                                 Designed a measurement setup based on the capillary rise method to determine the contact angle of hydrophilic powders by monitoring pressure variations.
                             </li>
                             <li>
-                                Measured the wettability of graphite and coffee powders, determining a contact angle of $76.5^\circ$ for coffee, which explains its non-clumping dissolution behavior.
+                                Measured the wettability of graphite and coffee powders, determining the contact angle for coffee, which explains its non-clumping dissolution behavior.
                             </li>
                             <li>
                                 <strong class="text-gray-800">Contribution:</strong> Co-leader; responsible for experimental design, theoretical modeling, calculations, and implementation.
