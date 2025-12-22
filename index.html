@@ -38,168 +38,181 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        sidebar: '#f8f9fa',
-                        primary: '#111827',
-                        accent: '#2563eb', 
-                        subtext: '#4b5563'
+                        sidebar: '#0f172a', // Slate-900 深蓝灰
+                        primary: '#1e293b', // Slate-800
+                        secondary: '#475569', // Slate-600
+                        accent: '#2563eb', // Blue-600
+                        'accent-light': '#eff6ff', // Blue-50
+                        subtext: '#64748b'
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom Scrollbar for Chrome/Safari/Webkit */
+        /* 隐藏侧边栏滚动条 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* 全局滚动条样式优化 */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #f1f5f9;
         }
         ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
+            background: #cbd5e1;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
+            background: #94a3b8;
         }
         
-        /* Sidebar active link styling */
+        /* 导航链接样式 */
         .nav-link.active {
-            color: #2563eb;
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-right: 3px solid #3b82f6;
             font-weight: 600;
-            border-right: 3px solid #2563eb;
-            background-color: #eff6ff;
+        }
+        .nav-link {
+            border-right: 3px solid transparent;
+            color: #94a3b8;
+        }
+        .nav-link:hover {
+            color: #e2e8f0;
+            background-color: rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 <body class="bg-white text-primary font-sans antialiased flex flex-col md:flex-row min-h-screen">
 
     <!-- === 左侧固定侧边栏 (Sidebar) === -->
-    <aside class="w-full md:w-72 md:fixed md:h-screen bg-sidebar border-r border-gray-200 flex flex-col justify-between overflow-y-auto z-50">
+    <aside class="w-full md:w-72 md:fixed md:h-screen bg-sidebar border-r border-slate-800 flex flex-col justify-between overflow-y-auto z-50 no-scrollbar">
         <!-- 上部分：个人信息与导航 -->
         <div class="p-8">
-            <!-- 头像占位符 (如果有真实照片，替换src即可) -->
-            <div class="w-32 h-32 mx-auto bg-gray-300 rounded-full mb-6 overflow-hidden border-4 border-white shadow-md flex items-center justify-center text-gray-500">
-                <i class="fas fa-user text-5xl"></i>
+            
+            <!-- 照片区域 -->
+            <div class="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-slate-700 flex items-center justify-center bg-slate-800 shadow-lg">
+                <!-- <img src="./photo.jpg" alt="Li Shangchengze" class="w-full h-full object-cover"> -->
+                <i class="fas fa-user text-4xl text-slate-500"></i>
             </div>
             
-            <div class="text-center mb-8">
-                <h1 class="text-2xl font-serif font-bold text-gray-900 mb-2">Li Shangchengze</h1>
-                <p class="text-sm text-accent font-medium">Undergraduate @ USTC</p>
-                <p class="text-xs text-gray-500 mt-1">Physics / SCGY</p>
+            <div class="text-center mb-10">
+                <h1 class="text-xl font-serif font-bold text-slate-100 mb-2">Li Shangchengze</h1>
+                <p class="text-xs text-accent font-bold tracking-widest uppercase mb-1">Undergraduate @ USTC</p>
+                <p class="text-xs text-slate-500">Physics / SCGY</p>
             </div>
 
             <!-- 导航菜单 -->
-            <nav class="space-y-1">
-                <a href="#about" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+            <nav class="space-y-2">
+                <a href="#about" class="nav-link block px-4 py-2 text-sm transition-all duration-200 text-right md:text-left rounded-l">
                     About Me
                 </a>
-                <a href="#education" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                <a href="#education" class="nav-link block px-4 py-2 text-sm transition-all duration-200 text-right md:text-left rounded-l">
                     Education
                 </a>
-                <a href="#research-interests" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                <a href="#research-interests" class="nav-link block px-4 py-2 text-sm transition-all duration-200 text-right md:text-left rounded-l">
                     Research Interests
                 </a>
-                <a href="#experience" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                <a href="#experience" class="nav-link block px-4 py-2 text-sm transition-all duration-200 text-right md:text-left rounded-l">
                     Research Experience
                 </a>
-                <a href="#skills" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                <a href="#skills" class="nav-link block px-4 py-2 text-sm transition-all duration-200 text-right md:text-left rounded-l">
                     Skills
                 </a>
-                <a href="#honors" class="nav-link block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-l transition-colors">
+                <a href="#honors" class="nav-link block px-4 py-2 text-sm transition-all duration-200 text-right md:text-left rounded-l">
                     Honors & Awards
                 </a>
             </nav>
         </div>
 
         <!-- 下部分：社交链接与版权 -->
-        <div class="p-8 border-t border-gray-200 bg-gray-50">
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="text-gray-400 hover:text-accent transition-colors" title="Email">
+        <div class="p-6 border-t border-slate-800 bg-slate-900">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="text-slate-500 hover:text-white transition-colors">
                     <i class="fas fa-envelope text-lg"></i>
                 </a>
-                <a href="https://github.com/LofiCm7" target="_blank" class="text-gray-400 hover:text-gray-900 transition-colors" title="GitHub">
+                <a href="https://github.com/LofiCm7" target="_blank" class="text-slate-500 hover:text-white transition-colors">
                     <i class="fab fa-github text-lg"></i>
                 </a>
             </div>
 
-            <p class="text-center text-xs text-gray-400">
+            <p class="text-center text-[10px] text-slate-600 uppercase tracking-widest">
                 &copy; 2025 Li Shangchengze<br>
-                Based in Hefei, China
+                Hefei, China
             </p>
         </div>
     </aside>
 
     <!-- === 右侧主要内容区域 (Main Content) === -->
-    <main class="flex-1 md:ml-72 p-6 md:p-16 lg:p-24 max-w-6xl mx-auto w-full">
+    <main class="flex-1 md:ml-72 p-8 md:p-20 lg:p-24 max-w-5xl mx-auto w-full bg-white">
         
         <!-- About / Intro -->
-        <section id="about" class="mb-20 scroll-mt-20">
+        <section id="about" class="mb-24 scroll-mt-24">
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <!-- [修改点 1] 调整网格布局，将右侧列加宽 (col-span-5)，左侧减小 (col-span-7)，总共12列 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- 左侧：主要介绍文字 (占 2/3) -->
-                <div class="lg:col-span-2 space-y-6">
-                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-2">Hello, I'm Li Shangchengze.</h2>
+                <!-- 左侧：主要介绍文字 (占 7/12) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h2 class="text-4xl font-serif font-bold text-primary mb-4 leading-tight">
+                        Hello, I'm <span class="text-accent">Li Shangchengze</span>.
+                    </h2>
                     
-                    <div class="text-lg text-gray-600 leading-relaxed font-serif space-y-6 text-justify">
+                    <div class="text-base text-secondary leading-relaxed font-serif space-y-5 text-justify">
                         <p>
-                            I am a junior undergraduate student at the <strong class="text-gray-900">University of Science and Technology of China (USTC)</strong>, majoring in Physics within the <strong class="text-gray-900">School of the Gifted Young</strong>.
+                            I am a junior undergraduate student at the <strong class="text-primary">University of Science and Technology of China (USTC)</strong>, majoring in Physics within the <strong class="text-primary">School of the Gifted Young</strong>.
                         </p>
                         <p>
-                            My academic focus lies in <strong class="text-gray-900">Particle Physics and Nuclear Physics</strong>. I hold a strong passion for the <strong class="text-gray-900">research and application of Machine Learning & Deep Learning in High Energy Physics</strong>, which I am currently prioritizing in my studies and research. 
+                            My academic focus lies in <strong class="text-primary">Particle Physics and Nuclear Physics</strong>. I hold a strong passion for the <strong class="text-primary">research and application of Machine Learning & Deep Learning in High Energy Physics</strong>, which I am currently prioritizing in my studies and research. 
                         </p>
                         <p>
-                            I am also deeply engaged in research concerning <strong class="text-gray-900">Higgs Physics</strong> and <strong class="text-gray-900">phenomenology Beyond the Standard Model (BSM)</strong>. Additionally, I am keenly interested in the emerging applications of Quantum Computing in HEP.
+                            I am also deeply engaged in research concerning <strong class="text-primary">Higgs Physics</strong> and <strong class="text-primary">phenomenology Beyond the Standard Model (BSM)</strong>. Additionally, I am keenly interested in the emerging applications of Quantum Computing in HEP.
                         </p>
                     </div>
                 </div>
 
-                <!-- 右侧：极简信息栏 (占 1/3) -->
-                <div class="lg:col-span-1 lg:border-l lg:border-gray-200 lg:pl-10 mt-2 lg:mt-0">
-                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Connect</h3>
+                <!-- 右侧：极简信息栏 (占 5/12) - 加宽区域 -->
+                <div class="lg:col-span-5 lg:border-l lg:border-slate-200 lg:pl-10 mt-4 lg:mt-0">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Connect</h3>
                     
                     <div class="space-y-6">
                         <!-- Email -->
-                        <div class="group">
-                            <h4 class="text-sm font-bold text-gray-900 mb-1 flex items-center">
-                                <i class="fas fa-envelope w-5 text-gray-400 group-hover:text-accent transition-colors"></i>
-                                Email
-                            </h4>
-                            <p class="text-sm text-gray-600 font-mono select-all break-all hover:text-gray-900 transition-colors cursor-text">
+                        <div>
+                            <h4 class="text-xs font-bold text-primary uppercase mb-1">Email</h4>
+                            <!-- [修改点 2] 移除 break-all，添加 whitespace-nowrap 防止换行 -->
+                            <p class="text-sm text-secondary font-mono select-all cursor-text hover:text-accent transition-colors whitespace-nowrap">
                                 lscz1078766751@mail.ustc.edu.cn
                             </p>
                         </div>
 
                         <!-- GitHub -->
-                        <div class="group">
-                            <h4 class="text-sm font-bold text-gray-900 mb-1 flex items-center">
-                                <i class="fab fa-github w-5 text-gray-400 group-hover:text-black transition-colors"></i>
-                                GitHub
-                            </h4>
-                            <a href="https://github.com/LofiCm7" target="_blank" class="text-sm text-gray-600 font-mono hover:text-accent hover:underline decoration-dotted break-all block">
+                        <div>
+                            <h4 class="text-xs font-bold text-primary uppercase mb-1">GitHub</h4>
+                            <a href="https://github.com/LofiCm7" target="_blank" class="text-sm text-accent font-mono hover:underline decoration-dotted break-all block">
                                 github.com/LofiCm7
                             </a>
                         </div>
 
                         <!-- Location -->
-                         <div class="group">
-                            <h4 class="text-sm font-bold text-gray-900 mb-1 flex items-center">
-                                <i class="fas fa-map-marker-alt w-5 text-gray-400 group-hover:text-red-500 transition-colors"></i>
-                                Location
-                            </h4>
-                            <p class="text-sm text-gray-600">
+                         <div>
+                            <h4 class="text-xs font-bold text-primary uppercase mb-1">Location</h4>
+                            <p class="text-sm text-secondary">
                                 Hefei, Anhui, China
                             </p>
                         </div>
 
                         <!-- Actions -->
-                        <div class="pt-6 border-t border-gray-100 flex flex-col gap-3">
-                            <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-accent hover:bg-blue-700 transition-colors w-full">
+                        <div class="pt-4">
+                            <a href="mailto:lscz1078766751@mail.ustc.edu.cn" class="inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-bold rounded text-white bg-accent hover:bg-accent-dark transition-colors w-full shadow-sm">
                                 Contact Me
-                            </a>
-                            <a href="#" class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors w-full">
-                                <i class="fas fa-download mr-2 text-gray-400"></i> Download CV
                             </a>
                         </div>
                     </div>
@@ -208,111 +221,128 @@
 
         </section>
 
-        <hr class="border-gray-100 mb-16">
+        <hr class="border-slate-100 mb-16">
 
         <!-- Education -->
-        <section id="education" class="mb-20 scroll-mt-20">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Resume</h3>
-            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Education</h2>
+        <section id="education" class="mb-24 scroll-mt-24">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-8 h-px bg-slate-300 mr-3"></span>Resume
+            </h3>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-10">Education</h2>
             
-            <div class="relative pl-8 border-l-2 border-gray-100">
-                <!-- Node -->
-                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-4 border-accent"></div>
+            <div class="relative pl-8 border-l-2 border-slate-100 ml-2">
+                <!-- Timeline Dot -->
+                <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-white border-4 border-accent"></div>
                 
                 <div class="mb-2">
-                    <span class="text-sm font-mono text-accent font-semibold">Sep 2023 - Jun 2027 (Expected)</span>
+                    <span class="text-sm font-mono font-bold text-accent">Sep 2023 - Jun 2027 (Expected)</span>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900">University of Science and Technology of China (USTC)</h3>
-                <div class="text-gray-700 mt-1 mb-4">
+                <h3 class="text-xl font-bold text-primary mt-2">University of Science and Technology of China (USTC)</h3>
+                <div class="text-secondary mt-1 mb-6">
                     Major in Physics, School of the Gifted Young<br>
-                    <span class="text-sm text-gray-500">Specialization: Particle Physics and Nuclear Physics</span>
+                    <span class="text-sm text-slate-500">Specialization: Particle Physics and Nuclear Physics</span>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-100 mb-6">
-                     <p class="text-sm text-gray-600 mb-4 leading-relaxed">
-                        <span class="font-bold text-gray-900">Selected Courses:</span> 
+                <!-- Main Content Card -->
+                <div class="bg-slate-50 p-6 rounded-lg border-l-4 border-accent shadow-sm border border-slate-100">
+                     <p class="text-sm text-secondary mb-4 leading-relaxed">
+                        <strong class="text-primary block mb-1">Selected Courses:</strong> 
                         Theoretical Mechanics, Electrodynamics, Optics, Atomic Physics, Computational Physics (Monte Carlo, Machine Learning), 
                         Quantum Mechanics (In Progress), Advanced Quantum Mechanics (Graduate, In Progress), 
                         Particle Physics (Graduate, Auditing)
                     </p>
-                    <p class="text-sm text-gray-600 mb-4 leading-relaxed">
-                        <span class="font-bold text-gray-900">Planned Courses:</span>
+                    <p class="text-sm text-secondary mb-4 leading-relaxed">
+                        <strong class="text-primary block mb-1">Planned Courses:</strong>
                         Quantum Field Theory (Graduate), Particle Detection Techniques (Graduate), 
                         Experimental Methods in Particle Physics (Graduate), Machine Learning, Artificial Intelligence
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mt-2 border-t border-gray-200 pt-4">
-                        <div class="font-bold text-gray-900 text-sm">GPA: 3.85 / 4.3 (89.5%)</div>
-                        <div class="font-bold text-gray-900 text-sm">Rank: 5/28</div>
+                    <div class="flex flex-col sm:flex-row gap-6 mt-4 border-t border-slate-200 pt-4">
+                        <div class="text-sm text-primary font-medium">
+                            GPA: <span class="font-bold text-primary">3.85 / 4.3</span> (89.5%)
+                        </div>
+                        <div class="text-sm text-primary font-medium">
+                            Rank: <span class="font-bold text-primary">5 / 28</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Research Interests -->
-        <section id="research-interests" class="mb-20 scroll-mt-20">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Focus</h3>
-            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Research Interests</h2>
+        <!-- Research Interests (恢复为卡片样式) -->
+        <section id="research-interests" class="mb-24 scroll-mt-24">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-8 h-px bg-slate-300 mr-3"></span>Focus
+            </h3>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-10">Research Interests</h2>
             
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Card 1 -->
-                <div class="group p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-lg transition-all duration-300 bg-white">
-                    <div class="w-12 h-12 bg-blue-50 text-accent rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1: BSM -->
+                <div class="group p-8 rounded-xl border border-slate-200 bg-white h-full shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-50 text-accent rounded-lg flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-atom"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-gray-900 mb-3">BSM Phenomenology</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        Beyond the Standard Model phenomenology, focusing on <strong class="text-gray-900">Higgs-related New Physics</strong> (e.g., Extended Higgs Sectors, 2HDM), CP Violation sources, and Dark Matter candidates.
+                    <h4 class="text-lg font-bold text-primary mb-4">BSM Phenomenology</h4>
+                    <!-- [修改点 3] 将 text-justify 改为 text-left -->
+                    <p class="text-sm text-secondary leading-relaxed text-left">
+                        Beyond the Standard Model phenomenology, focusing on <strong class="text-primary">Higgs-related New Physics</strong> (e.g., Extended Higgs Sectors, 2HDM), CP Violation sources, and Dark Matter candidates.
                     </p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="group p-6 rounded-xl border border-gray-200 hover:border-accent hover:shadow-lg transition-all duration-300 bg-white">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <!-- Card 2: HEP -->
+                <div class="group p-8 rounded-xl border border-slate-200 bg-white h-full shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center text-xl mb-6">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-gray-900 mb-3">Experimental & Computational High Energy Physics</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        Focusing on the <strong class="text-gray-900">research and application of Machine Learning & Deep Learning</strong> in High Energy Physics (HEP-ML), alongside <strong class="text-gray-900">precision measurements of Higgs boson properties</strong>, collider data analysis, and Monte Carlo simulations.
+                    <h4 class="text-lg font-bold text-primary mb-4">Experimental & Computational High Energy Physics</h4>
+                    <!-- [修改点 3] 将 text-justify 改为 text-left，并去掉了 (HEP-ML) -->
+                    <p class="text-sm text-secondary leading-relaxed text-left">
+                        Focusing on the <strong class="text-primary">research and application of Machine Learning & Deep Learning</strong> in High Energy Physics, alongside <strong class="text-primary">precision measurements of Higgs boson properties</strong>, collider data analysis, and Monte Carlo simulations.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Research Experience -->
-        <section id="experience" class="mb-20 scroll-mt-20">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Portfolio</h3>
-            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Research Experience</h2>
+        <section id="experience" class="mb-24 scroll-mt-24">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-8 h-px bg-slate-300 mr-3"></span>Portfolio
+            </h3>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-10">Research Experience</h2>
             
-            <div class="space-y-12">
+            <div class="space-y-16">
                 
                 <!-- Category 1: Undergraduate Research Practice -->
-                <div class="relative border-l-2 border-gray-200 pl-8 pb-4">
-                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent"></div>
+                <div class="relative border-l border-slate-200 pl-8 ml-2">
+                     <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-accent"></div>
                      
                      <div class="flex flex-col md:flex-row justify-between mb-2">
-                        <h3 class="text-2xl font-bold text-gray-900">Undergraduate Research Practice</h3>
-                        <span class="text-sm font-mono text-gray-500 mt-1 md:mt-0">Sep 2024 - Present</span>
+                        <h3 class="text-2xl font-bold text-primary">Undergraduate Research Practice</h3>
+                        <span class="text-sm font-mono text-secondary mt-1 md:mt-0 font-medium">Sep 2024 - Present</span>
                     </div>
 
                     <div class="mb-4">
-                        <span class="text-xs font-mono text-accent border border-accent/30 px-2 py-0.5 rounded bg-blue-50">
+                        <span class="text-[10px] font-bold tracking-wider text-accent uppercase border border-blue-100 bg-blue-50 px-2 py-1 rounded">
                             High Energy Physics
                         </span>
                     </div>
 
-                    <p class="text-sm text-accent font-semibold mb-6">Group of Prof. Yusheng Wu (Member of ATLAS Collaboration)</p>
+                    <p class="text-sm text-accent font-semibold mb-6">
+                        Group of Prof. Yusheng Wu (Member of ATLAS Collaboration)
+                    </p>
                     
                     <!-- Specific Project -->
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                        <div class="mb-2">
-                            <strong class="text-gray-900 block text-lg mb-1">Study of CP Violation in Higgs Physics within the 2HDM</strong>
-                            <span class="text-sm text-gray-500 font-mono block mb-2">(Dec 2024 - Present)</span>
-                            <div class="text-sm text-accent font-medium mb-4">
-                                Undergraduate Research Program | Advisor: Prof. Yusheng Wu
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-accent">
+                        <div class="mb-4 pb-4 border-b border-slate-200 flex flex-col md:flex-row justify-between md:items-start gap-2">
+                            <div>
+                                <strong class="text-primary block text-lg mb-1">Study of CP Violation in Higgs Physics within the 2HDM</strong>
+                                <div class="text-xs text-accent font-bold tracking-wide">
+                                    Undergraduate Research Program | Advisor: Prof. Yusheng Wu
+                                </div>
                             </div>
+                            <span class="text-xs text-slate-400 font-mono whitespace-nowrap bg-white px-2 py-1 rounded border border-slate-100">(Dec 2024 - Present)</span>
                         </div>
 
-                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-secondary leading-relaxed text-justify">
                             <li>
                                 Investigated the Type-II Two-Higgs-Doublet Model (2HDM) with soft $Z_2$ symmetry breaking (C2HDM) to explore potential signals of <strong>CP violation</strong>.
                             </li>
@@ -323,11 +353,11 @@
                                 Analyzed the model's behavior near the <strong>Standard Model alignment limit</strong> and evaluated the sensitivity of current LHC data to C2HDM parameters via $\chi^2$ statistical analysis.
                             </li>
                             <li>
-                                <strong class="text-gray-800">Future Plan:</strong> Implement MC simulations to derive kinematic distributions for calculating <strong>STXS bin modification factors</strong>; Refine benchmark parameter regions with strict theoretical and experimental constraints to identify distinct <strong>CP-violation signals</strong>.
+                                <strong class="text-primary">Future Plan:</strong> Implement MC simulations to derive kinematic distributions for calculating <strong>STXS bin modification factors</strong>; Refine benchmark parameter regions with strict theoretical and experimental constraints to identify distinct <strong>CP-violation signals</strong>.
                             </li>
-                            <li>
-                                <strong class="text-gray-800">Current Progress Report:</strong>
-                                <a href="./assets/report.pptx" class="text-accent hover:underline font-medium ml-1 inline-flex items-center">
+                            <li class="pt-2">
+                                <strong class="text-primary">Current Progress Report:</strong>
+                                <a href="./assets/C2HDM%26SM%20Alignment.pptx" class="text-accent hover:underline font-medium ml-1">
                                     <i class="fas fa-file-powerpoint mr-1"></i> Download Slides
                                 </a>
                             </li>
@@ -336,34 +366,33 @@
                 </div>
 
                 <!-- Category 2: Course Research Projects -->
-                <div class="relative border-l-2 border-gray-200 pl-8 pb-4">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-400"></div>
+                <div class="relative border-l border-slate-200 pl-8 ml-2">
+                    <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-400"></div>
 
-                    <div class="flex flex-col md:flex-row justify-between mb-6">
-                        <h3 class="text-2xl font-bold text-gray-900">Course Research Projects</h3>
-                        <span class="text-sm font-mono text-gray-500 mt-1 md:mt-0">Sep 2023 - Present</span>
+                    <div class="flex flex-col md:flex-row justify-between mb-8">
+                        <h3 class="text-2xl font-bold text-primary">Course Research Projects</h3>
+                        <span class="text-sm font-mono text-secondary mt-1 md:mt-0 font-medium">Sep 2023 - Present</span>
                     </div>
 
                     <!-- Project 1 -->
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-6">
-                        <div class="mb-3">
-                            <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-                                <strong class="text-gray-900 text-lg">Theoretical Derivation and Simulation of Birefringence Interference Patterns</strong>
-                                <span class="text-sm text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Dec 2024)</span>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
+                        <div class="mb-3 pb-3 border-b border-slate-200">
+                            <div class="flex flex-col md:flex-row justify-between md:items-start gap-2 mb-2">
+                                <strong class="text-primary text-lg leading-snug">Theoretical Derivation and Simulation of Birefringence Interference Patterns</strong>
+                                <span class="text-xs text-slate-400 font-mono whitespace-nowrap bg-white px-2 py-1 rounded border border-slate-100">(Dec 2024)</span>
                             </div>
                             
-                            <div class="my-2">
-                                 <span class="text-xs font-mono text-gray-500 border border-gray-300 px-2 py-0.5 rounded">
+                            <div class="flex flex-wrap gap-2 items-center">
+                                 <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase border border-emerald-200 bg-emerald-50 px-2 py-1 rounded">
                                     Non-HEP Project
                                 </span>
                             </div>
-
                             <p class="text-sm text-accent mt-1 font-medium">
-                                Course Project: Optics <span class="mx-1 text-gray-300">|</span> Two-person Team
+                                Course Project: Optics <span class="mx-1 text-slate-300">|</span> Two-person Team
                             </p>
                         </div>
 
-                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-secondary leading-relaxed text-justify">
                             <li>
                                 Derived theoretical formulas for the intensity distribution and contrast of equal-inclination interference fringes induced by crystal birefringence.
                             </li>
@@ -371,31 +400,30 @@
                                 Simulated and visualized interference patterns under varying experimental parameters using <strong>Mathematica</strong>.
                             </li>
                             <li>
-                                <strong class="text-gray-800">Contribution:</strong> Focused on partial theoretical derivations and led the entire numerical simulation.
+                                <strong class="text-primary">Contribution:</strong> Focused on partial theoretical derivations and led the entire numerical simulation.
                             </li>
                         </ul>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mb-6">
-                        <div class="mb-3">
-                            <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-                                <strong class="text-gray-900 text-lg">Measurement of Soft Iron Permeability and Copper Conductivity via AC Bridge and COMSOL</strong>
-                                <span class="text-sm text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Mar 2024 - Jun 2024)</span>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
+                        <div class="mb-3 pb-3 border-b border-slate-200">
+                            <div class="flex flex-col md:flex-row justify-between md:items-start gap-2 mb-2">
+                                <strong class="text-primary text-lg leading-snug">Measurement of Soft Iron Permeability and Copper Conductivity via AC Bridge and COMSOL</strong>
+                                <span class="text-xs text-slate-400 font-mono whitespace-nowrap bg-white px-2 py-1 rounded border border-slate-100">(Mar 2024 - Jun 2024)</span>
                             </div>
 
-                            <div class="my-2">
-                                 <span class="text-xs font-mono text-gray-500 border border-gray-300 px-2 py-0.5 rounded">
+                            <div class="flex flex-wrap gap-2 items-center">
+                                 <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase border border-emerald-200 bg-emerald-50 px-2 py-1 rounded">
                                     Non-HEP Project
                                 </span>
                             </div>
-
                             <p class="text-sm text-accent mt-1 font-medium">
-                                Course Project: College Physics – Base Experimentation A <span class="mx-1 text-gray-300">|</span> Two-person Team <span class="mx-1 text-gray-300">|</span> Topic from IYPT
+                                Course Project: College Physics – Base Experimentation A <span class="mx-1 text-slate-300">|</span> Two-person Team <span class="mx-1 text-slate-300">|</span> Topic from IYPT
                             </p>
                         </div>
 
-                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-secondary leading-relaxed text-justify">
                             <li>
                                 Constructed an AC bridge to measure the variations in coil inductance and resistance upon the insertion of soft iron and copper cores.
                             </li>
@@ -406,31 +434,30 @@
                                 Analyzed the sensitivity of the AC bridge system.
                             </li>
                             <li>
-                                <strong class="text-gray-800">Contribution:</strong> Co-designed and implemented the experiment; primarily responsible for performing finite element calculations using COMSOL.
+                                <strong class="text-primary">Contribution:</strong> Co-designed and implemented the experiment; primarily responsible for performing finite element calculations using COMSOL.
                             </li>
                         </ul>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-                        <div class="mb-3">
-                            <div class="flex flex-col md:flex-row md:items-baseline justify-between">
-                                <strong class="text-gray-900 text-lg">Measurement of Contact Angle of Hydrophilic Powder via Capillary Rise Method</strong>
-                                <span class="text-sm text-gray-500 font-mono md:ml-2 whitespace-nowrap">(Dec 2023 - Jun 2024)</span>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <div class="mb-3 pb-3 border-b border-slate-200">
+                            <div class="flex flex-col md:flex-row justify-between md:items-start gap-2 mb-2">
+                                <strong class="text-primary text-lg leading-snug">Measurement of Contact Angle of Hydrophilic Powder via Capillary Rise Method</strong>
+                                <span class="text-xs text-slate-400 font-mono whitespace-nowrap bg-white px-2 py-1 rounded border border-slate-100">(Dec 2023 - Jun 2024)</span>
                             </div>
 
-                            <div class="my-2">
-                                 <span class="text-xs font-mono text-gray-500 border border-gray-300 px-2 py-0.5 rounded">
+                            <div class="flex flex-wrap gap-2 items-center">
+                                 <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase border border-emerald-200 bg-emerald-50 px-2 py-1 rounded">
                                     Non-HEP Project
                                 </span>
                             </div>
-
                             <p class="text-sm text-accent mt-1 font-medium">
-                                Course Project: Freshman Seminar <span class="mx-1 text-gray-300">|</span> Four-person Team <span class="mx-1 text-gray-300">|</span> Advisor: Prof. Xiaojun Wu
+                                Course Project: Freshman Seminar <span class="mx-1 text-slate-300">|</span> Four-person Team <span class="mx-1 text-slate-300">|</span> Advisor: Prof. Xiaojun Wu
                             </p>
                         </div>
 
-                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-gray-600 leading-relaxed">
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-sm text-secondary leading-relaxed text-justify">
                             <li>
                                 Designed a measurement setup based on the capillary rise method to determine the contact angle of hydrophilic powders by monitoring pressure variations.
                             </li>
@@ -438,7 +465,7 @@
                                 Measured the wettability of graphite and coffee powders, determining the contact angle for coffee, which explains its non-clumping dissolution behavior.
                             </li>
                             <li>
-                                <strong class="text-gray-800">Contribution:</strong> Co-leader; responsible for experimental design, theoretical modeling, calculations, and implementation.
+                                <strong class="text-primary">Contribution:</strong> Co-leader; responsible for experimental design, theoretical modeling, calculations, and implementation.
                             </li>
                         </ul>
                     </div>
@@ -447,129 +474,168 @@
             </div>
         </section>
 
-        <!-- Skills -->
-        <section id="skills" class="mb-20 scroll-mt-20">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Capabilities</h3>
-            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Technical Skills</h2>
+        <!-- Skills (合并为一个深色大卡片, 包含 Programming 和 Tools) -->
+        <section id="skills" class="mb-24 scroll-mt-24">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-8 h-px bg-slate-300 mr-3"></span>Capabilities
+            </h3>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-10">Technical Skills</h2>
             
-            <div class="bg-gray-900 text-gray-300 rounded-2xl p-8 shadow-xl">
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div>
-                        <h4 class="text-white text-lg font-bold mb-4 flex items-center">
-                            <i class="fas fa-code mr-3 text-accent"></i> Programming
-                        </h4>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex justify-between">
-                                <span>C++ (STL)</span>
-                                <span class="text-gray-500">Intermediate</span>
-                            </li>
-                            <li class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                <div class="bg-accent h-1.5 rounded-full" style="width: 75%"></div>
-                            </li>
-                            
-                            <li class="flex justify-between mt-4">
-                                <span>Python (NumPy, <strong class="text-white">PyTorch</strong>, etc.)</span>
-                                <span class="text-gray-500">Proficient</span>
-                            </li>
-                            <li class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                <div class="bg-accent h-1.5 rounded-full" style="width: 95%"></div>
-                            </li>
+            <!-- Unified Dark Card -->
+            <div class="bg-primary text-white p-8 rounded-lg shadow-xl border border-slate-700 relative overflow-hidden">
+                <!-- Background Decoration -->
+                <div class="absolute -right-12 -top-12 w-64 h-64 bg-accent opacity-10 rounded-full blur-3xl"></div>
 
-                            <li class="flex justify-between mt-4">
-                                <span>Mathematica</span>
-                                <span class="text-gray-500">Intermediate</span>
+                <!-- 1. Algorithms & Techniques (Highlighted at Top) -->
+                <div class="mb-10 relative z-10">
+                    <h4 class="text-xl font-bold mb-5 flex items-center text-accent">
+                        <i class="fas fa-brain mr-3"></i> Algorithms & Techniques
+                    </h4>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-slate-800/80 px-5 py-2.5 rounded border border-slate-600 flex items-center gap-3">
+                            <span class="h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(37,99,235,0.5)]"></span>
+                            <span class="text-base font-bold tracking-wide text-white">Monte Carlo Simulation</span>
+                        </div>
+                        <div class="bg-slate-800/80 px-5 py-2.5 rounded border border-slate-600 flex items-center gap-3">
+                            <span class="h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(37,99,235,0.5)]"></span>
+                            <span class="text-base font-bold tracking-wide text-white">Machine Learning</span>
+                        </div>
+                        <div class="bg-slate-800/80 px-5 py-2.5 rounded border border-slate-600 flex items-center gap-3">
+                            <span class="h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(37,99,235,0.5)]"></span>
+                            <span class="text-base font-bold tracking-wide text-white">Neural Networks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="w-full h-px bg-slate-700/50 mb-10"></div>
+
+                <!-- 2. Programming & Tools (Grid Below - All Dark) -->
+                <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                    
+                    <!-- Programming -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-6 flex items-center text-slate-300">
+                            <i class="fas fa-code mr-3 text-slate-500"></i> Programming
+                        </h4>
+                        <ul class="space-y-5">
+                            <li>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-white">C++ (STL)</span>
+                                    <span class="text-slate-400 text-xs bg-slate-800 px-2 py-0.5 rounded">Intermediate</span>
+                                </div>
+                                <div class="w-full bg-slate-700/50 rounded-full h-1.5">
+                                    <div class="bg-accent h-1.5 rounded-full" style="width: 75%"></div>
+                                </div>
                             </li>
-                            <li class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                <div class="bg-accent h-1.5 rounded-full" style="width: 75%"></div>
+                            <li>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-white">Python (NumPy, <strong class="text-accent">PyTorch</strong>, etc.)</span>
+                                    <span class="text-slate-400 text-xs bg-slate-800 px-2 py-0.5 rounded">Proficient</span>
+                                </div>
+                                <div class="w-full bg-slate-700/50 rounded-full h-1.5">
+                                    <div class="bg-accent h-1.5 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-white">Mathematica</span>
+                                    <span class="text-slate-400 text-xs bg-slate-800 px-2 py-0.5 rounded">Intermediate</span>
+                                </div>
+                                <div class="w-full bg-slate-700/50 rounded-full h-1.5">
+                                    <div class="bg-accent h-1.5 rounded-full" style="width: 75%"></div>
+                                </div>
                             </li>
                         </ul>
-
-                        <h4 class="text-white text-lg font-bold mt-8 mb-4 flex items-center">
-                            <i class="fas fa-brain mr-3 text-accent"></i> Algorithms & Techniques
-                        </h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Monte Carlo Simulation</span>
-                            <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Machine Learning</span>
-                            <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Neural Networks</span>
-                        </div>
                     </div>
-                    
+
+                    <!-- Tools & Frameworks (No Hover Effects) -->
                     <div>
-                        <h4 class="text-white text-lg font-bold mb-4 flex items-center">
-                            <i class="fas fa-tools mr-3 text-accent"></i> Tools & Frameworks
+                        <h4 class="text-lg font-bold mb-6 flex items-center text-slate-300">
+                            <i class="fas fa-tools mr-3 text-slate-500"></i> Tools & Frameworks
                         </h4>
-                        
-                        <div class="space-y-4">
-                            <!-- Category 1: General HEP Tools -->
+                        <div class="space-y-6">
                             <div>
-                                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">General HEP Tools</h5>
+                                <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-3">General HEP Tools</h5>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">MadGraph5</span>
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">FeynRules</span>
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">ROOT Framework</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">MadGraph5</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">FeynRules</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">ROOT Framework</span>
                                 </div>
                             </div>
 
-                            <!-- Category 2: Other HEP Tools -->
                             <div>
-                                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Other HEP Tools</h5>
+                                <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-3">Other HEP Tools</h5>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">HDECAY</span>
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">HiggsBounds</span>
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">HiggsSignals</span>
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">ScannerS</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">HDECAY</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">HiggsBounds</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">HiggsSignals</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">ScannerS</span>
                                 </div>
                             </div>
 
-                            <!-- Category 3: Productivity -->
                             <div>
-                                <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Productivity</h5>
+                                <h5 class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-3">Productivity</h5>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Linux</span>
-                                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">LaTeX</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">Linux</span>
+                                    <span class="px-3 py-1 bg-slate-800 rounded text-xs text-gray-300 border border-slate-600">LaTeX</span>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- Honors -->
-        <section id="honors" class="mb-10 scroll-mt-20">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Recognition</h3>
-            <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Honors & Awards</h2>
+        <section id="honors" class="mb-10 scroll-mt-24">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center">
+                <span class="w-8 h-px bg-slate-300 mr-3"></span>Recognition
+            </h3>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-10">Honors & Awards</h2>
             
             <div class="grid gap-4">
-                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all">
-                    <div class="w-12 text-center font-bold text-accent text-lg">2024</div>
-                    <div class="w-px h-8 bg-gray-300 mx-4"></div>
+                <div class="flex items-center p-4 bg-slate-50 rounded border border-slate-200 border-l-4 border-l-slate-300 hover:border-l-accent transition-colors">
+                    <div class="w-16 text-center">
+                        <span class="block font-bold text-slate-700 text-lg">2024</span>
+                    </div>
+                    <div class="w-px h-8 bg-slate-200 mx-4"></div>
                     <div>
-                        <div class="font-bold text-gray-900">Rose Scholarship</div>
-                        <div class="text-xs text-gray-500">School of the Gifted Young, USTC</div>
+                        <div class="font-bold text-primary">Rose Scholarship</div>
+                        <div class="text-xs text-secondary">School of the Gifted Young, USTC</div>
                     </div>
                 </div>
                 
-                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all">
-                    <div class="w-12 text-center font-bold text-gray-400 text-lg">2023</div>
-                    <div class="w-px h-8 bg-gray-300 mx-4"></div>
+                <div class="flex items-center p-4 bg-slate-50 rounded border border-slate-200 border-l-4 border-l-slate-300 hover:border-l-accent transition-colors">
+                     <div class="w-16 text-center">
+                        <span class="block font-bold text-slate-700 text-lg">2023</span>
+                    </div>
+                    <div class="w-px h-8 bg-slate-200 mx-4"></div>
                     <div>
-                        <div class="font-bold text-gray-900">Outstanding Freshman Scholarship</div>
-                        <div class="text-xs text-gray-500">University of Science and Technology of China</div>
+                        <div class="font-bold text-primary">Outstanding Freshman Scholarship</div>
+                        <div class="text-xs text-secondary">University of Science and Technology of China</div>
                     </div>
                 </div>
                 
-                <div class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all">
-                    <div class="w-12 text-center font-bold text-gray-400 text-lg">2022</div>
-                    <div class="w-px h-8 bg-gray-300 mx-4"></div>
+                <div class="flex items-center p-4 bg-slate-50 rounded border border-slate-200 border-l-4 border-l-slate-300 hover:border-l-accent transition-colors">
+                     <div class="w-16 text-center">
+                        <span class="block font-bold text-slate-700 text-lg">2022</span>
+                    </div>
+                    <div class="w-px h-8 bg-slate-200 mx-4"></div>
                     <div>
-                        <div class="font-bold text-gray-900">Provincial First Prize</div>
-                        <div class="text-xs text-gray-500">Chinese Physics Olympiad (CPhO)</div>
+                        <div class="font-bold text-primary">Provincial First Prize</div>
+                        <div class="text-xs text-secondary">Chinese Physics Olympiad (CPhO)</div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 添加页脚更新时间 -->
+        <footer class="py-6 text-center text-xs text-secondary border-t border-slate-200 mt-12">
+            <p class="mb-2">&copy; 2025 Li Shangchengze. Hefei, China</p>
+            <p>Last Updated: Dec 2025</p>
+        </footer>
 
     </main>
     
@@ -579,23 +645,38 @@
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            window.addEventListener('scroll', () => {
+            function updateActiveLink() {
                 let current = '';
+                
+                // 1. 标准滚动检测
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 300)) {
+                    // 这里的 300 是判定偏移量，可以根据需要微调
+                    if (window.scrollY >= (sectionTop - 300)) {
                         current = section.getAttribute('id');
                     }
                 });
 
+                // 2. 页面底部强制检测 (修复最后一项无法高亮的问题)
+                // 当滚动条接近底部 (剩余空间小于 50px) 时，强制选中最后一个 section
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    if (sections.length > 0) {
+                        current = sections[sections.length - 1].getAttribute('id');
+                    }
+                }
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
+                    // 只有当 current 不为空且链接包含 current id 时才激活
+                    if (current && link.getAttribute('href').includes(current)) {
                         link.classList.add('active');
                     }
                 });
-            });
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+            // 初始化时也执行一次，防止刷新后状态不对
+            updateActiveLink();
         });
     </script>
 </body>
